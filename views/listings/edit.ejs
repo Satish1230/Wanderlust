@@ -1,0 +1,54 @@
+<% layout('layouts/boilerplate') %>
+
+    <body>
+        <h3>Edit this listing</h3>
+        <form method="POST" action="/listings/<%=listing._id%>?_method=PUT" novalidate class="needs-validation">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input name="listing[title]" value="<%=listing.title%>" type="text" class="form-control" required />
+                <div class="valid-feedback">
+                    Title looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea name="listing[description]"></textarea>
+                <%=listing.description%> </textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Enter image URL/Link</label>
+                <input name="listing[image]" value="<%=listing.image%>" type="text" class="form-control" required>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input name="listing[price]" value="<%=listing.price%>" type="number" class="form-control" required>
+                <div class="invalid-feedback">
+                    Please select a valid price.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <input name="listing[country]" value="<%=listing.country%>" type="text" class="form-control" required>
+                <div class="invalid-feedback">
+                    Please select a valid country.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input name="listing[location]" value="<%=listing.location%>" type="text" class="form-control" required>
+                <div class="invalid-feedback">
+                    Please select a valid location.
+                </div>
+            </div>
+
+            <button class="btn btn-dark edit0btn">Edit</button>
+        </form>
+    </body>
+
+    </html>
