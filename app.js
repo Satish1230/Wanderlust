@@ -1,13 +1,16 @@
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
-const Listing = require('./models/listing');
+// const Listing = require('./models/listing');
 const path = require("path");
 const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
-const wrapAsync = require('./utils/wrapAsync.js');
-const ExpressError = require('./utils/ExpressError.js');
-const { Listingschema, reviewschema } = require("./schema.js")
+// const wrapAsync = require('./utils/wrapAsync.js');
+// const ExpressError = require('./utils/ExpressError.js');
+// const { Listingschema, reviewschema } = require("./schema.js")
 const Review = require('./models/review');
 const session = require('express-session');
 const flash = require('connect-flash');
@@ -34,7 +37,7 @@ app.use(methodOverride("_method"))
 app.engine('ejs', ejsMate)
 app.use(express.static(path.join(__dirname, 'public')));
 
-const sessionOPtions = {
+const sessionOPtions = {    //required for session
     secret: "mysecreatcode",
     resave: false,
     saveUninitialized: true,
